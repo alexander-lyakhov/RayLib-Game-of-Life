@@ -20,4 +20,4 @@
 ![In progress](/screenshots/02.png "In progress")
 
 ![Color mode](/screenshots/04.png "Color mode")
-> In color mode the color of the cell depends on cell age
+> In color mode, the color of the cell depends on cell's age
