@@ -93,7 +93,7 @@ void App_init(App *app)
 
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Conway's game of life");
 
-	app->cell_state_mask  = 0;
+	app->cell_state_selector  = 0;
 
 	app->grid_color = (Color){ 48,  48,  48, 255};
 	app->cell_color = (Color){224, 160,   0, 255};
@@ -155,7 +155,7 @@ static void App_check_complete(App *app)
 {
 	for (size_t i = 0; i < app->cell_count; i++)
 	{
-		if (app->cells[i].state[2] != app->cells[i].state[app->cell_state_mask])
+		if (app->cells[i].state[2] != app->cells[i].state[app->cell_state_selector])
 			return;
 	}
 	app->is_complete = 1;
@@ -195,34 +195,34 @@ void App_update(App *app)
 				
 				int check_index = y * app->cols + x;
 
-				if (app->cells[check_index].state[app->cell_state_mask]) n++;
+				if (app->cells[check_index].state[app->cell_state_selector]) n++;
 			}
 		}
 
-		state[2] = state[app->cell_state_mask ^ 1];
+		state[2] = state[app->cell_state_selector ^ 1];
 		
 		switch(n) {
 			// no changes
 			case 2:
-				state[app->cell_state_mask ^ 1] = state[app->cell_state_mask];
+				state[app->cell_state_selector ^ 1] = state[app->cell_state_selector];
 				cell->age++;
 				break;
 				
 			// New cell is borning
 			case 3:
-				state[app->cell_state_mask ^ 1] = 1;
+				state[app->cell_state_selector ^ 1] = 1;
 				break;
 				
 			// Cell dies (n < 2 or n > 3)
 			default:
-				state[app->cell_state_mask ^ 1] = 0;
+				state[app->cell_state_selector ^ 1] = 0;
 				cell->age = 0;
 		}
 
-		app->cells_alive += state[app->cell_state_mask ^ 1];
+		app->cells_alive += state[app->cell_state_selector ^ 1];
 	}
 
-	app->cell_state_mask ^= 1;
+	app->cell_state_selector ^= 1;
 	App_check_complete(app);
 }
 
@@ -246,7 +246,7 @@ void App_render(App *app)
 		// Choose cell color
 		if (app->cell_color_mode)
 		{
-			color = cell->state[app->cell_state_mask]
+			color = cell->state[app->cell_state_selector]
 				? cell->age > cell_colors_count - 1
 					? cell_colors[cell_colors_count - 1]
 					: cell_colors[cell->age]
@@ -254,7 +254,7 @@ void App_render(App *app)
 		}
 		else
 		{
-			color = cell->state[app->cell_state_mask]
+			color = cell->state[app->cell_state_selector]
 				? app->cell_color
 				: app->grid_color;
 		}

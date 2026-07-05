@@ -19,7 +19,7 @@ typedef struct _App {
 	short cell_count;
 	short width;
 	short height;
-	char  cell_state_mask;
+	char  cell_state_selector;
 	char  cell_color_mode;
 
 	bool is_complete;
