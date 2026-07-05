@@ -15,9 +15,14 @@
 
 ## Screenshots
 
-![Start screen](/screenshots/01.png "Start screen")
+<img src="screenshots/01.png" alt="Start screen" width="962px" />
 
-![In progress](/screenshots/02.png "In progress")
+<br/>
 
-![Color mode](/screenshots/04.png "Color mode")
+<img src="screenshots/02.png" alt="Start screen" width="962px" />
+
+<br/>
+
+| <img src="screenshots/03.png" alt="Start screen" width="481px" /> | <img src="screenshots/04.png" alt="Start screen" width="481px" />
+
 > In color mode, the color of the cell depends on cell's age
