@@ -91,7 +91,7 @@ void App_init(App *app)
 	
 	SetTargetFPS(TARGET_FPS);
 
-	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Conway's game of life");
+	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Conway's Game of life");
 
 	app->cell_state_selector  = 0;
 
