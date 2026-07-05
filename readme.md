@@ -23,6 +23,6 @@
 
 <br/>
 
-| <img src="screenshots/03.png" alt="Start screen" width="481px" /> | <img src="screenshots/04.png" alt="Start screen" width="481px" />
+<img src="screenshots/04.png" alt="Start screen" width="481px" />
 
 > In color mode, the color of the cell depends on cell's age
