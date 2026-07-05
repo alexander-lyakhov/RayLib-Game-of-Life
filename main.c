@@ -292,7 +292,6 @@ void App_render(App *app)
 // =============================================================================
 int App_listen(App *app)
 {
-
 	float delta_time = GetFrameTime();
 
 	if (app->key_delay < KEY_DELAY)
